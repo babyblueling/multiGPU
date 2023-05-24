@@ -19,19 +19,19 @@ import torch.utils.data.distributed
 
 from model import pyramidnet
 import argparse
-from tensorboardX import SummaryWriter
+# from tensorboardX import SummaryWriter
 
 
 parser = argparse.ArgumentParser(description='cifar10 classification models')
 parser.add_argument('--lr', default=0.1, help='')
 parser.add_argument('--resume', default=None, help='')
-parser.add_argument('--batch_size', type=int, default=768, help='')
+parser.add_argument('--batch_size', type=int, default=128, help='')
 parser.add_argument('--num_workers', type=int, default=4, help='')
 parser.add_argument("--gpu_devices", type=int, nargs='+', default=None, help="")
 
 parser.add_argument('--gpu', default=None, type=int, help='GPU id to use.')
 parser.add_argument('--dist-url', default='tcp://127.0.0.1:3456', type=str, help='')
-parser.add_argument('--dist-backend', default='nccl', type=str, help='')
+parser.add_argument('--dist-backend', default='gloo', type=str, help='')
 parser.add_argument('--rank', default=0, type=int, help='')
 parser.add_argument('--world_size', default=1, type=int, help='')
 parser.add_argument('--distributed', action='store_true', help='')
